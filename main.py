@@ -7,7 +7,7 @@ import map
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
-bg_image = pygame.image.load('background_image.jpg')
+bg_image = pygame.image.load("C:\Users\FótiDávidBálint(SZF_\Documents\verseny\images\elefant_sovany.png")
 running = True
 map = ["szenbanya","bejarat","kebab","kinai","baguette","angol","amerikai","mexiko","gym","kuria"]
 
@@ -18,7 +18,7 @@ while running:
 
         if event.type == pygame.QUIT:
             running = False
-
+    screen.blit(bg_image, (0, 0))
     screen.fill("black")
     pygame.display.flip()
     clock.tick(30)
