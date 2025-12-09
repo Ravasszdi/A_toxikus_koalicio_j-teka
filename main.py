@@ -1,7 +1,7 @@
 # Example file showing a basic pygame "game loop"
 import sys
 import pygame
-import map
+import gombok
 
 # pygame setup
 pygame.init()
@@ -11,10 +11,22 @@ screen = pygame.display.set_mode((width,height))
 clock = pygame.time.Clock()
 bg_image = pygame.image.load("images/backgrounds/coalmine.png")
 running = True
-map = ["coalmine","entrance","kebab","chinese","baguette","british","american","mexican","gym","kuria"]
-font = pygame.font.SysFont('Arial', 40)
-def myFunction():
-    print('Button Pressed')
+map_ = ["coalmine","entrance","kebab","chinese","baguette","british","american","mexican","gym","kuria"]
+font = pygame.font.SysFont('Arial', 36)
+map_index = 0
+
+def select(event):
+    global map_index
+    match event:
+        case "bal":
+            if gombok.left(map_index) == 2:
+                map_index -= 1              
+        case "jobb":
+            map_index += gombok.right(map_index)
+        case _:
+            pass
+    print(map_index)
+
 objects = []
 class Button():
     def __init__(self, x, y, width, height, buttonText='Button', onclickFunction=None, onePress=False):
@@ -52,10 +64,28 @@ class Button():
         self.buttonRect.width/2 - self.buttonSurf.get_rect().width/2,
         self.buttonRect.height/2 - self.buttonSurf.get_rect().height/2])
         screen.blit(self.buttonSurface, self.buttonRect)
-gomb1 = Button(560, 880, 400, 100, 'Balra lépés', myFunction)
-gomb2 = Button(960, 880, 400, 100, 'Jobbra lépés', myFunction)
+gomb1 = Button(560, 900, 400, 100, 'Balra lépés', lambda: select("bal"))
+gomb2 = Button(960, 900, 400, 100, 'Jobbra lépés', lambda: select("jobb"))
+gomb3 = Button(160, 900, 400, 100, 'Tárgy felvétel', lambda: select(""))
+gomb4 = Button(1360, 900, 400, 100, 'Használat', lambda: select(""))
+gomb5 = Button(1680, 90, 80, 40, 'taco', lambda: select(""))
+objects.append(gomb5)
 objects.append(gomb1)
 objects.append(gomb2)
+objects.append(gomb3)
+objects.append(gomb4)
+labels = ['csiga', 'kebab', 'cica', 'kutya', 'tea', 'fish', 'burgir']
+
+x = 1680
+y = 130
+w = 80
+h = 40
+for label in labels:
+    btn = Button(x, y, w, h, label, lambda: select("jobb"))
+    objects.append(btn)
+    y += h  # minden következő gomb 40-nel lejjebb
+
+
 print(gomb1.width)
 #flip = update screen pygame.display.flip()
 #

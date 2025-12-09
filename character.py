@@ -4,7 +4,7 @@ class Character:
         self.ORIGIN_WEIGHT = float(ORIGIN_WEIGHT)
         self.hunger = float(hunger)
         self.MAX_HUNGER = float(MAX_HUNGER)
-        self.inventory = []        # <-- fixed
+        self.inventory = []
         self.map = str(map)
 
     def hunger_increase(self, amount: float = 1.0):
@@ -28,3 +28,18 @@ class Character:
             else:
                 for i in item:
                     self.inventory.append(i)
+                    
+    def privat_find_item(self, item = str) -> int:
+        item_index = 0
+        for i in range(len(self.inventory)):
+            if self.inventory[i]==item:
+                item_index = i
+        return item_index
+
+    def use_and_remove_item(self, item = str)->bool:
+        if self.in_inventory(item):
+            item_index = self.privat_find_item(item)
+            self.inventory.pop(int(item_index))
+            return True
+        else:
+            return False
