@@ -11,8 +11,12 @@ screen = pygame.display.set_mode((width,height))
 clock = pygame.time.Clock()
 bg_image = pygame.image.load("images/backgrounds/coalmine.png")
 bg_image_entrance = pygame.image.load("images/backgrounds/coalmine_entrance.png")
+bg_image_gym = pygame.image.load("images/backgrounds/gym.png")
+bg_image_kebab = pygame.image.load("images/backgrounds/kebab.png")
+bg_image_chinese = pygame.image.load("images/backgrounds/widechinese.png")
+bg_image_british = pygame.image.load("images/backgrounds/british.png")
 running = True
-map_ = ["coalmine","entrance","kebab","chinese","baguette","british","american","mexican","gym","kuria"]
+map_ = ["coalmine","entrance","kebab","chinese","british","baguette","american","mexican","gym","kuria"]
 font = pygame.font.SysFont('Arial', 36)
 map_index = 0
 
@@ -99,6 +103,22 @@ while running:
             screen.blit(bg_image, (0, 0))
         case 1:
             screen.blit(bg_image_entrance, (0, 0))
+        case 2:
+            screen.blit(bg_image_kebab, (0, 0))
+        case 3:
+            screen.blit(bg_image_chinese, (0, 0))
+        case 4:
+            screen.blit(bg_image_british , (0, 0))
+        case 5:
+            screen.blit(bg_image, (0, 0))
+        case 6:
+            screen.blit(bg_image, (0, 0))
+        case 7:
+            screen.blit(bg_image, (0, 0))
+        case 8:
+            screen.blit(bg_image, (0, 0))
+        case 9:
+            screen.blit(bg_image, (0, 0))
     for object in objects:
         object.process()
     pygame.display.flip()
