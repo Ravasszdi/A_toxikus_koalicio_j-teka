@@ -1,0 +1,15 @@
+Játékosok: Elefánt, szakács gergő(tudós), politikus
+default karakter: politikussal
+éhezési mechanika: balancelhatod mennyire vagy dagadt, ha túl vékony vagy börtönbe kerülsz (értelmes meteorit ezt mondta)
+Map:Szénbánya konyhája, bejárati személyzet konyhája, piac standok(kebab, kínai, baguette, angol, amerikai (dupla annyi hízás), taco) 
+Gym (spammeled az entert úgy fogysz),  kúria (akasztófa)
+tárgyak (ételek): taco, csiga, kebab, macska, kutya, baguette, tea, fish & chips, burgir
+Inventory system:
+nem lineáris
+
+full angol, snakecase, KONSTANS, beszédes változók
+
+
+alpha: meglegyen a map és tudjunk helyszínt változtatni
+
+
